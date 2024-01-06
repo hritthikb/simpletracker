@@ -8,7 +8,7 @@ export default class Header extends Component {
         className="button button--fullscreen button--no-radius header"
         to="/add-habit"
       >
-        ADD HABIT
+        Add a TASK to track
       </Link>
     );
   }

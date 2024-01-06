@@ -31,7 +31,7 @@ export default class Home extends Component {
     let returnedComponent;
     if (habits.length === 0) {
       returnedComponent = (
-        <div className="default-display">Please create a new habit</div>
+        <div className="default-display">There are No tasks to display!</div>
       );
     } else {
       returnedComponent = (

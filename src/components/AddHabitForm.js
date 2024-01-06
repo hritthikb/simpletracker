@@ -37,7 +37,7 @@ class AddHabitForm extends Component {
       <form className="form">
         <div>
           <label>
-            Habit Name
+            Enter name for your Task 
             <input
               type="text"
               className="input"
