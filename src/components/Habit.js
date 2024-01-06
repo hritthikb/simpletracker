@@ -91,12 +91,22 @@ class Habit extends Component {
       <div className="habit">
         <div className="habit__name">{this.props.habit.name}</div>
         <div className="habit__details">
-          You're currently on a{" "}
+          You have done this task{" "}
           <b>
             {this.state.dayStreak}
-            -DAY-STREAK
+            times in a row.
           </b>
         </div>
+
+        <div className="habit__details">
+          You have done this task <b>{this.props.habit.days.length} times</b>{" "}
+          since you started.
+
+        </div>
+
+
+
+
         <div className="habit__footer">
           <div className="habit__status">
             <label>

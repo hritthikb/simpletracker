@@ -14,12 +14,12 @@
 }
 
 .button--danger {
-  background-color: #607d8b;
+  background-color: #ed5035;
   color: white;
 }
 
 .button--fullscreen {
-  background-color: #e91e63;
+  background-color: #4287e7;
   color: #fff;
   margin: 0;
   width: 100%;
@@ -27,12 +27,13 @@
 }
 
 .button--primary {
-  background-color: #e91e63;
-  color: #fff;
+  background-color: #4287e7;
+    color: #fff;
 }
 
 .button--secondary {
-  background-color: #fec108;
+  background-color: #4287e7;
+    color: #fff;
 }
 
 .button--no-radius {
@@ -40,5 +41,5 @@
 }
 
 .button--secondary:hover {
-  color: #e81e63;
+  color: #000000;
 }

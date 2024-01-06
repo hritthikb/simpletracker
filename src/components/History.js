@@ -15,7 +15,7 @@ export default class History extends Component {
 
     let daysRecorded = habit.days;
     let dayGrids = [];
-    
+    let dayGridinYear = [];
 
 
     for (let i = 0; i < 30; i++) {
@@ -23,16 +23,33 @@ export default class History extends Component {
         .subtract(i, "days")
         .format("YYYY-MM-D");
       if (dayGridDate.toString() === daysRecorded[daysRecorded.length - 1]) {
-        dayGrids.unshift(<div className="day day--active" key={i} />);
+        dayGrids.unshift(<div className="day day--active" key={i} text={i}/>);
         daysRecorded.splice(daysRecorded.length - 1, 1);
       } else {
         dayGrids.unshift(<div className="day" key={i} />);
       }
     }
 
+    for (let i = 0; i < 365; i++) {
+      let dayGridDate= moment()
+        .subtract(i, "days")
+        .format("YYYY-MM-D");
+      if (dayGridDate.toString() === daysRecorded[daysRecorded.length - 1]) {
+        dayGridinYear.unshift(<div className="day day--active" key={i} text={i}/>);
+        daysRecorded.splice(daysRecorded.length - 1, 1);
+      } else {
+        dayGridinYear.unshift(<div className="day" key={i} />);
+      }
+    }
+
     
     return (
       <div className="history">
+        <div className="history__details"> Total task statistics </div>
+        <div className="history__details"> Total task statistics </div>
+        
+
+
         <div className="history__header">
           <div>
             <div className="habit__name habit__name--large">{habit.name}</div>
@@ -45,6 +62,10 @@ export default class History extends Component {
           </span>
         </div>
         <div className="days">{dayGrids}</div>
+        <div className="history__header">
+          <div className="history__duration">Last 365 Days</div>
+        </div>
+        <div className="days">{dayGridinYear}</div>
       </div>
     );
   }

@@ -65,7 +65,7 @@ svg {
   font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
-  color: #e91e63;
+  color: #1e94e9;
   padding: 0 20px;
   white-space: nowrap;
   overflow: hidden;
@@ -90,7 +90,7 @@ svg {
 }
 
 .habit__status {
-  background-color: #e91e63;
+  background-color: #3774c4;
   color: #ffc107;
   font-weight: 600;
 }
@@ -103,7 +103,7 @@ svg {
 }
 
 .habit__status:hover {
-  color: #ecf0f9;
+  color: #000000;
 }
 
 .habit__footer {
@@ -127,7 +127,7 @@ svg {
 
 .history__duration {
   font-size: 14px;
-  color: #ea6696;
+  color: #3774c4;
   font-weight: 600;
   padding: 10px 0;
 }
@@ -151,11 +151,11 @@ svg {
 
 .day {
   height: 16px;
-  background-color: #fef2d4;
+  background-color: #f6b3b3;
 }
 
 .day--active {
-  background-color: #ffc107;
+  background-color: #afd478;
 }
 .default-display {
   font-size: 18px;
