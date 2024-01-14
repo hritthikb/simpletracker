@@ -1,15 +1,15 @@
 export default (state = {}, action) => {
   switch (action.type) {
-    case "SAVE_HABIT_ACTION":
-      let oldHabits = JSON.parse(window.localStorage.getItem("habits")) || [];
-      let habits = [
-        ...oldHabits,
+    case "SAVE_TASK_ACTION":
+      let oldTasks = JSON.parse(window.localStorage.getItem("tasks")) || [];
+      let tasks = [
+        ...oldTasks,
         {
           id: Math.round(Math.random() * 100000000000),
           ...action.payload
         }
       ];
-      window.localStorage.setItem("habits", JSON.stringify(habits));
+      window.localStorage.setItem("tasks", JSON.stringify(tasks));
       return {
         result: action.payload
       };

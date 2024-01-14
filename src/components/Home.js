@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Habit from "./Habit";
+import Task from "./Task";
 
 import "../styles/App.css";
 
@@ -9,39 +9,39 @@ export default class Home extends Component {
     this.state = {
       isFormOpen: false,
       isHistoryShown: false,
-      habits: []
+      tasks: []
     };
   }
 
   componentDidMount() {
     this.setState({
-      habits: JSON.parse(localStorage.getItem("habits"))
+      tasksFromStorage: JSON.parse(localStorage.getItem("tasks"))
     });
   }
 
-  updateHabits = habits => {
-    window.localStorage.setItem("habits", JSON.stringify(habits));
+  updateTasks = tasks => {
+    window.localStorage.setItem("tasks", JSON.stringify(tasks));
     this.setState({
-      habits
+      tasks
     });
   };
 
   render() {
-    let habits = this.state.habits || [];
+    let tasks = this.state.tasks || [];
     let returnedComponent;
-    if (habits.length === 0) {
+    if (tasks.length === 0) {
       returnedComponent = (
         <div className="default-display">There are No tasks to display!</div>
       );
     } else {
       returnedComponent = (
-        <div className="habits">
-          {habits.map(habit => {
+        <div className="tasks">
+          {tasks.map(tasks => {
             return (
               <Habit
-                key={habit.id}
-                habit={habit}
-                updateHabits={this.updateHabits}
+                key={tasks.id}
+                habit={tasks}
+                updateHabits={this.updateTasks}
               />
             );
           })}

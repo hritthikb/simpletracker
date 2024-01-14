@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import { connect } from "react-redux";
-import { updateHabit } from "../actions/habit";
+import { updateTask } from "../actions/task";
 
-class Habit extends Component {
+class Task extends Component {
   constructor(props) {
     super(props);
 
@@ -16,7 +16,7 @@ class Habit extends Component {
 
   updateDayStreak = () => {
     let dayStreak = 0;
-    const reverseSavedDays = this.props.habit.days.reverse();
+    const reverseSavedDays = this.props.task.days.reverse();
 
     let lastDate = moment(reverseSavedDays[0], "YYYY-MM-D");
     const today = moment().format("YYYY-MM-D");
@@ -46,14 +46,14 @@ class Habit extends Component {
   };
 
   componentDidUpdate(prevProps) {
-    if (prevProps.habit.days.length !== this.props.habit.days.length) {
+    if (prevProps.habit.days.length !== this.props.task.days.length) {
       this.updateDayStreak();
     }
   }
 
   componentDidMount() {
     const today = moment().format("YYYY-MM-D");
-    let savedDays = this.props.habit.days;
+    let savedDays = this.props.task.days;
     if (today === savedDays[savedDays.length - 1]) {
       this.setState({
         isChecked: true
@@ -68,12 +68,12 @@ class Habit extends Component {
       isChecked: !this.state.isChecked
     });
 
-    let habits = JSON.parse(window.localStorage.getItem("habits"));
-    let habit = habits.filter(
-      item => item.id === parseInt(this.props.habit.id)
+    let taskfromstotrage = JSON.parse(window.localStorage.getItem("tasks"));
+    let task = taskfromstotrage.filter(
+      item => item.id === parseInt(this.props.task.id)
     )[0];
-    console.log(habit, "yoyoyo");
-    let savedDays = habit.days;
+    console.log(task, "yoyoyo");
+    let savedDays = task.days;
 
     let today = moment().format("YYYY-MM-D");
     if (today !== savedDays[savedDays.length - 1]) {
@@ -82,15 +82,15 @@ class Habit extends Component {
       savedDays.splice(savedDays.length - 1, 1);
     }
 
-    habit.days = savedDays;
-    this.props.updateHabits(habits);
+    task.days = savedDays;
+    this.props.updateTask(task);
   };
 
   render() {
     return (
-      <div className="habit">
-        <div className="habit__name">{this.props.habit.name}</div>
-        <div className="habit__details">
+      <div className="task">
+        <div className="task__name">{this.props.task.name}</div>
+        <div className="task__details">
           You have done this task{" "}
           <b>
             {this.state.dayStreak}
@@ -98,8 +98,8 @@ class Habit extends Component {
           </b>
         </div>
 
-        <div className="habit__details">
-          You have done this task <b>{this.props.habit.days.length} times</b>{" "}
+        <div className="task__details">
+          You have done this task <b>{this.props.task.days.length} times</b>{" "}
           since you started.
 
         </div>
@@ -107,8 +107,8 @@ class Habit extends Component {
 
 
 
-        <div className="habit__footer">
-          <div className="habit__status">
+        <div className="task__footer">
+          <div className="task__status">
             <label>
               <svg
                 className="check__icon"
@@ -143,7 +143,7 @@ class Habit extends Component {
           </div>
           <Link
             className="button button--secondary button--no-radius"
-            to={`/view-history/${this.props.habit.id}`}
+            to={`/view-history/${this.props.task.id}`}
           >
             View History
           </Link>

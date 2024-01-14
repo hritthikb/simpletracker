@@ -46,7 +46,7 @@ svg {
   width: 100%;
 }
 
-.habits {
+.tasks {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
@@ -54,14 +54,14 @@ svg {
   margin: 20px;
 }
 
-.habit {
+.taks {
   background-color: #fff;
   border-radius: 4px;
   padding-top: 20px;
   overflow: hidden;
 }
 
-.habit__name {
+.task__name {
   font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
@@ -72,7 +72,7 @@ svg {
   text-overflow: ellipsis;
 }
 
-.habit__name--large {
+.task__name--large {
   font-size: 20px;
   padding: 0;
   width: 60vw;
@@ -82,35 +82,35 @@ svg {
   margin: 0;
 }
 
-.habit__details {
+.task__details {
   margin: 20px 0;
   font-size: 14px;
   color: #607d8b;
   padding: 0 20px;
 }
 
-.habit__status {
+.task__status {
   background-color: #3774c4;
   color: #ffc107;
   font-weight: 600;
 }
 
-.habit__status label {
+.task__status label {
   padding: 5px;
   display: inline-block;
   width: 100%;
   cursor: pointer;
 }
 
-.habit__status:hover {
+.task__status:hover {
   color: #000000;
 }
 
-.habit__footer {
+.task__footer {
   display: flex;
 }
 
-.habit__footer > * {
+.task__footer>* {
   flex-basis: 0;
   flex-grow: 1;
 }

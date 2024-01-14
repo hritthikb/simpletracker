@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import moment from "moment";
-import { saveHabit } from "../actions/habit";
+import { saveHabit, saveTask } from "../actions/task";
 
-class AddHabitForm extends Component {
+class AddTaskForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,8 +23,8 @@ class AddHabitForm extends Component {
     });
   };
 
-  handleSaveHabit = () => {
-    this.props.saveHabit({
+  handleSaveTask = () => {
+    this.props.saveTask({
       name: this.state.name,
       startDate: moment().format("YYYY-MM-D"),
       days: [moment().format("YYYY-MM-D")]
@@ -59,7 +59,7 @@ class AddHabitForm extends Component {
           <button
             className="button button--primary"
             type="button"
-            onClick={this.handleSaveHabit}
+            onClick={this.handleSaveTask}
           >
             Save
           </button>
@@ -71,10 +71,10 @@ class AddHabitForm extends Component {
 
 const mapStateToProps = state => ({ ...state });
 const mapDispatchToProps = dispatch => ({
-  saveHabit: data => dispatch(saveHabit(data))
+  saveTask: data => dispatch(saveTask(data))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(AddHabitForm);
+)(AddTaskForm);

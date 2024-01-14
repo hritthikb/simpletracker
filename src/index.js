@@ -6,7 +6,7 @@ import configureStore from "./store";
 import "./index.css";
 import Home from "./components/Home";
 import registerServiceWorker from "./registerServiceWorker";
-import AddHabitForm from "./components/AddHabitForm";
+import AddHabitForm from "./components/AddTaskForm";
 import Header from "./components/Header";
 import History from "./components/History";
 
@@ -17,7 +17,7 @@ ReactDOM.render(
         <Header />
         <div className="root">
           <Route exact path="/" component={Home} />
-          <Route exact path="/add-habit" component={AddHabitForm} />
+          <Route exact path="/add-task" component={AddTaskForm} />
           <Route exact path="/view-history/:id" component={History} />
         </div>
       </div>
