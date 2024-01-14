@@ -125,6 +125,12 @@ svg {
   align-items: center;
 }
 
+.task_count_summary {
+  color: #4e9d1c;
+  font-size: 30px;
+  text-shadow: 2px 1px 10px #ffc107;
+  padding-left: 10px;
+}
 .history__duration {
   font-size: 14px;
   color: #3774c4;
